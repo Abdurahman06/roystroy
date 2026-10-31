@@ -61,7 +61,8 @@ and [Next.js deployment guide](https://render.com/docs/deploy-nextjs-app).
 - A public repository does not grant reuse rights to company branding, footage
   or third-party models. Check media permissions before a public launch.
 
-Google Fonts are fetched during the build. External images use Unsplash;
+Manrope is bundled in `src/app/fonts` under its included SIL Open Font License;
+builds do not need Google Fonts access. External images use Unsplash;
 the map uses OpenStreetMap tiles and retains their attribution. Some catalog
 images and demo scenes remain illustrative, not verified company projects.
 
