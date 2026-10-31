@@ -1,0 +1,49 @@
+# Dependencies and build output
+/node_modules/
+/.next/
+/out/
+/dist/
+/coverage/
+*.tsbuildinfo
+
+# Credentials and local configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+/.codex/
+/.agents/
+/.vscode/
+/.idea/
+
+# Original media and design studies stay outside the deployment repository
+/Reels/
+/animation/
+/construction-keyframes/
+/3д/
+/*.mp4
+/*.MP4
+/*.mov
+/*.MOV
+/*.jpg
+/*.png
+
+# Superseded public media; the live site uses animation-web/clean-v1
+/public/animation/
+/public/animation-web/*.mp4
+/public/construction-process.mp4
+
+# Local backups, generated test captures and logs
+/.backups/
+/.video-review/
+/video-review/
+/test-results/
+/playwright-report/
+*.log
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db

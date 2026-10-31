@@ -1,0 +1,42 @@
+[
+  {
+    "id": "foundation",
+    "sourceFile": "3453234f1251b27e96d3041dbbf97592.mp4",
+    "title": "О фундаменте и бетоне",
+    "video": "/instagram/foundation.mp4",
+    "poster": "/instagram/foundation.webp",
+    "instagramUrl": "https://www.instagram.com/reel/CyTsdwuMRHs/",
+    "previewStart": 2,
+    "previewDuration": 8
+  },
+  {
+    "id": "monolith",
+    "sourceFile": "AQMg7TWXLAvwt9KuG0yiJXJdjotpHuGZjqWVYqSM7176VS3r_0Qf2LTdnYgLkyjJlOosGbyChLxl.mp4",
+    "title": "Монолитные работы",
+    "video": "/instagram/monolith.mp4",
+    "poster": "/instagram/monolith.webp",
+    "instagramUrl": "https://www.instagram.com/reel/DESVgRMg0TP/",
+    "previewStart": 0,
+    "previewDuration": 8
+  },
+  {
+    "id": "waterproofing",
+    "sourceFile": "AQOI5P8PtudrsQmfdyeKaOps9oh3J77O1nJfd3miVrQ6vX9G6LJlJmC8ncfn3mf.mp4",
+    "title": "Гидроизоляция фундамента",
+    "video": "/instagram/waterproofing.mp4",
+    "poster": "/instagram/waterproofing.webp",
+    "instagramUrl": "https://www.instagram.com/reel/CvAgUySKQww/",
+    "previewStart": 0,
+    "previewDuration": 8
+  },
+  {
+    "id": "completed-project",
+    "sourceFile": "vgetreels_bot_Dc39Z35ILFN.mp4",
+    "title": "Реализация проекта",
+    "video": "/instagram/completed-project.mp4",
+    "poster": "/instagram/completed-project.webp",
+    "instagramUrl": "https://www.instagram.com/reel/Dc39Z35ILFN/",
+    "previewStart": 0,
+    "previewDuration": 8
+  }
+]

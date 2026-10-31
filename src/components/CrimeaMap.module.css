@@ -1,0 +1,49 @@
+.mapFrame {
+  position: relative;
+  isolation: isolate;
+  height: 520px;
+  overflow: hidden;
+  border: 1px solid #b7c0bb;
+  border-radius: 8px;
+  background: #e1e8e1;
+}
+.map { width: 100%; height: 100%; z-index: 0; font-family: inherit; background: #e1e8e1; }
+.map :global(.leaflet-tile-pane) { filter: saturate(.8); }
+.map :global(.leaflet-control-attribution) { max-width: 100%; background: rgb(255 255 255 / 95%); color: #3b4743; font-size: 10px; line-height: 1.7; }
+.map :global(.leaflet-control-attribution) a { color: #23564b; }
+.map :global(.leaflet-tooltip) { font-family: inherit; }
+.mapTools { position: absolute; z-index: 2; top: 14px; right: 14px; display: flex; flex-direction: column; gap: 6px; }
+.mapTools button, .mapTools a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: #fff;
+  color: #263a32;
+  border: 1px solid #b6c0bb;
+  border-radius: 5px;
+  box-shadow: 0 2px 6px rgb(23 40 32 / 12%);
+}
+.mapTools button:hover:not(:disabled), .mapTools a:hover { background: #eef3ef; }
+.mapTools button:disabled { color: #929b95; cursor: default; }
+.mapTools :focus-visible, .selector button:focus-visible, .mapError button:focus-visible { outline: 2px solid #245c4b; outline-offset: 3px; }
+.marker { background: transparent; border: 0; display: flex; align-items: center; justify-content: center; }
+.markerDot { display: block; width: 19px; height: 19px; border-radius: 50%; background: #f8faf7; border: 5px solid #344b40; box-shadow: 0 1px 6px rgb(0 0 0 / 35%); }
+.markerSelected .markerDot { width: 25px; height: 25px; background: #fff; border: 7px solid #24745b; box-shadow: 0 0 0 4px rgb(255 255 255 / 85%), 0 2px 8px rgb(0 0 0 / 30%); }
+.marker:focus-visible { outline: 2px solid #1d4a3b; outline-offset: 3px; border-radius: 50%; }
+.map .mapLabel { color: #fff; background: #263b31; border: 0; padding: 6px 10px; border-radius: 4px; font-size: 12px; line-height: 1.4; box-shadow: 0 2px 8px rgb(0 0 0 / 15%); }
+.map .mapLabel::before { border-top-color: #263b31; }
+.mapStatus { position: absolute; z-index: 1; inset: 0; display: grid; place-items: center; color: #42564a; pointer-events: none; }
+.mapError { position: absolute; z-index: 3; bottom: 36px; left: 14px; right: 14px; display: flex; align-items: center; flex-wrap: wrap; justify-content: space-between; gap: 8px; padding: 12px 14px; background: #fff; border: 1px solid #bdc7bf; border-radius: 6px; color: #263a32; font-size: 12px; }
+.mapError button { display: inline-flex; align-items: center; gap: 6px; font-weight: 650; }
+.selector { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin-top: 16px; }
+.selector button { min-height: 40px; padding: 8px 10px; border: 1px solid #b9c0bb; border-radius: 4px; color: #3b4942; text-align: left; font-size: 12px; line-height: 1.4; }
+.selector button:hover { background: rgb(255 255 255 / 60%); }
+.selector button[aria-pressed="true"] { color: #fff; background: #344b40; border-color: #344b40; }
+.mapNote { margin-top: 12px; color: #56635a; font-size: 11px; line-height: 1.6; }
+@media (max-width: 639px) {
+  .mapFrame { height: 420px; }
+  .mapTools { top: 10px; right: 10px; }
+  .selector { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}

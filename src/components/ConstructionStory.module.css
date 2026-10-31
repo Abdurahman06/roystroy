@@ -1,0 +1,101 @@
+.shade {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+  background: linear-gradient(180deg, #07100c08 22%, #07100c12 40%, #07100c94 74%, #07100ce6 100%);
+}
+
+.logo {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  padding: 32px;
+  pointer-events: none;
+}
+
+.logo p { color: #fff; font-size: 17px; line-height: 1.5; text-align: center; text-shadow: 0 2px 12px #0009; }
+.copy {
+  position: absolute;
+  z-index: 10;
+  left: max(48px, calc((100% - 1344px) / 2));
+  right: 48px;
+  bottom: 156px;
+  display: grid;
+  pointer-events: none;
+  color: #fff;
+}
+.chapter { grid-area: 1 / 1; align-self: end; max-width: 620px; opacity: 0; visibility: hidden; }
+.chapter h2 { margin: 0; font-size: 56px; line-height: 1.08; font-weight: 600; letter-spacing: 0; color: #fff; text-shadow: 0 2px 20px #0003; }
+.chapter h2 span { display: block; }
+.chapter p { max-width: 460px; margin-top: 18px; font-size: 16px; line-height: 1.6; color: #f2f4f2; text-wrap: pretty; }
+.action { display: inline-flex; align-items: center; gap: 12px; margin-top: 20px; padding: 11px 0; border-bottom: 1px solid #ffffff85; font-size: 14px; font-weight: 600; color: #fff; pointer-events: auto; }
+.action:hover { border-color: #fff; }
+.action:focus-visible { outline: 2px solid #fff; outline-offset: 6px; }
+.action:disabled { opacity: .5; }
+.chapter[data-current="false"] .action { pointer-events: none; }
+.timeline {
+  position: absolute;
+  left: max(48px, calc((100% - 1344px) / 2));
+  bottom: 40px;
+  z-index: 10;
+  width: min(600px, calc(100% - 300px));
+  opacity: 0;
+  pointer-events: none;
+}
+.steps { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; list-style: none; margin: 0; padding: 0; }
+.step { min-width: 0; color: #fff9; font-size: 11px; font-weight: 500; }
+.track { display: block; height: 2px; background: #ffffff40; margin-bottom: 12px; overflow: hidden; }
+.fill { display: block; height: 100%; width: 100%; background: #fff; transform: scaleX(0); transform-origin: left; }
+.step[aria-current="step"] { color: #fff; }
+.disclaimer { display: block; margin-top: 12px; font-size: 10px; color: #fff9; }
+.skip { position: absolute; right: 32px; bottom: 32px; z-index: 30; display: inline-flex; align-items: center; gap: 12px; min-height: 44px; padding: 12px 20px; border: 1px solid #ffffff59; border-radius: 6px; background: #0003; color: #fff; font-size: 13px; font-weight: 500; backdrop-filter: blur(8px); transition: background 180ms; }
+.skip:hover { background: #0007; }
+.skip:focus-visible { outline: 2px solid #fff; outline-offset: 4px; }
+.skip:disabled { opacity: .5; }
+
+@media (min-width: 1600px) {
+  .chapter h2 { font-size: 64px; }
+}
+@media (max-width: 900px) {
+  .copy { left: 32px; right: 32px; bottom: 150px; }
+  .chapter h2 { font-size: 46px; }
+  .timeline { left: 32px; width: calc(100% - 260px); }
+  .steps { gap: 8px; }
+}
+@media (max-width: 600px) {
+  .logo { gap: 22px; padding: 24px; }
+  .logo p { max-width: 260px; font-size: 14px; }
+  .copy { left: 24px; right: 24px; bottom: 164px; }
+  .chapter h2 { font-size: 34px; line-height: 1.12; }
+  .chapter p { max-width: 340px; font-size: 14px; line-height: 1.5; margin-top: 14px; }
+  .action { margin-top: 14px; font-size: 13px; }
+  .timeline { left: 24px; right: 24px; width: auto; bottom: 98px; }
+  .steps { gap: 7px; }
+  .step { font-size: 10px; }
+  .track { margin-bottom: 8px; }
+  .disclaimer { margin-top: 9px; }
+  .skip { right: 24px; bottom: 24px; padding: 10px 14px; }
+}
+@media (max-width: 360px) {
+  .copy { left: 20px; right: 20px; }
+  .chapter h2 { font-size: 30px; }
+  .timeline { left: 20px; right: 20px; }
+  .step { font-size: 9px; }
+}
+@media (max-height: 600px) and (min-width: 601px) {
+  .copy { bottom: 112px; }
+  .chapter h2 { font-size: 36px; }
+  .chapter p { margin-top: 10px; max-width: 500px; font-size: 14px; }
+  .action { margin-top: 8px; padding: 6px 0; }
+  .timeline { bottom: 24px; }
+  .logo { gap: 14px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .skip { transition: none; }
+}

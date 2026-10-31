@@ -1,0 +1,11 @@
+.tab h3 { color: #202428; }
+.tab p { color: #59636b; }
+.tab[aria-pressed="true"] h3 { color: #f8fafb; }
+.tab[aria-pressed="true"] p { color: #c2cbd1; }
+.tab:focus-visible { outline: 2px solid #6b7a87; outline-offset: 4px; }
+.iconWindow { overflow: hidden; flex-shrink: 0; }
+.icon { display: block; width: 20px; height: 20px; }
+.icon[data-engineering-icon="relief"] { transform-origin: 50% 100%; }
+@media (prefers-reduced-motion: reduce) {
+  .tab { transition: none; }
+}
