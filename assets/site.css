@@ -889,7 +889,7 @@ input[type=range]#cArea{width:100%;height:28px;accent-color:var(--ink);cursor:po
 .cfg-res .cr-note{margin:6px 0 0;padding:12px 14px;border-radius:10px;background:rgba(21,23,26,.05);font-size:12.5px;line-height:1.5;color:var(--ink-2)}
 .cfg-res .cr-note b{color:var(--ink)}
 @media (max-width:999px){.cfg-res{grid-template-columns:1fr}.cfg-res .cr-inc{display:none}}
-@media (min-width:600px) and (max-width:999px){.cfg-res{grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:22px;align-items:center}.cr-house{grid-row:span 4;margin:0}.cfg-res .cr-note{grid-column:1/-1}}
+
 @media (orientation:landscape) and (max-height:520px){.cfg .q-nav{position:static;margin:16px 0 0;border-radius:0;background:none;border:0;box-shadow:none;padding:0}}
 .cfg-steps button span{flex:none;height:auto;background:none}
 .cfg-steps .ss{display:none}

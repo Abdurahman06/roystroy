@@ -471,7 +471,7 @@
   const fmt = s => { const [y, m, d] = dParts(s); return `${d} ${MONTHS[m - 1]} ${y}`; };
   const fmtS = s => { const [y, m, d] = dParts(s); return `${d} ${MON_S[m - 1]} ${String(y).slice(2)}`; };
   const fmtM = s => { const [y, m] = dParts(s); return `${MONTHS_N[m - 1]} ${y}`; };
-  const period = o => { const a = o.items[0][0], z = o.items[o.items.length - 1][0]; if (!a || !z) return o.items.length + ' этапов'; return a.slice(0, 7) === z.slice(0, 7) ? fmtM(a) : `${fmtM(a)} — ${fmtM(z)}`; };
+  const period = o => { return o.items.length + ' этапов'; const a = o.items[0][0], z = o.items[o.items.length - 1][0]; return a.slice(0, 7) === z.slice(0, 7) ? fmtM(a) : `${fmtM(a)} — ${fmtM(z)}`; };
   const imgPath = (o, i, suf) => `assets/${o.dir || 'obj'}/${o.id}-${i}${suf}.webp`;
   let ob = null, oi = 0, obT = null, bgb = null;
   const PLAY_MS = 1800;
@@ -499,7 +499,7 @@
     obCount.textContent = `${oi + 1} / ${n}`;
     obPrev.disabled = oi === 0; obNext.disabled = oi === n - 1;
     const it = ob.items[oi];
-    $('#obDate').textContent = it[0] ? fmt(it[0]) : `Этап ${oi + 1} из ${n}`; $('#obStep').textContent = it[1];
+    $('#obDate').textContent = `Этап ${oi + 1} из ${n}`; $('#obStep').textContent = it[1];
     $$('li', obSteps).forEach((li, k) => { li.classList.toggle('past', k < oi); li.classList.toggle('cur', k === oi); });
     const curLi = $$('li', obSteps)[oi];
     if (curLi) { const box = obSteps, r = curLi.offsetLeft - box.offsetLeft, t = curLi.offsetTop - box.offsetTop;
@@ -527,7 +527,7 @@
       return;
     }
     desc.hidden = true;
-    $('#obPlace').textContent = ob.items[0][0] ? `${ob.place} · ${period(ob)}` : ob.place;
+    $('#obPlace').textContent = `${ob.place} · ${period(ob)}`;
     const suf = small() ? '-s' : '';
     ob.items.forEach((it, i) => {
       const im = document.createElement('img');
@@ -537,7 +537,7 @@
       obImgs.appendChild(im);
       obBars.insertAdjacentHTML('beforeend', '<i><b></b></i>');
       const li = document.createElement('li');
-      li.innerHTML = `<button type="button"><span>${it[1]}</span><small>${it[0] ? fmtS(it[0]) : String(i + 1).padStart(2, '0')}</small></button>`;
+      li.innerHTML = `<button type="button"><span>${it[1]}</span><small>${String(i + 1).padStart(2, '0')}</small></button>`;
       li.firstChild.addEventListener('click', () => { stopOb(); showOb(i); });
       obSteps.appendChild(li);
     });
@@ -831,7 +831,7 @@
     areaOut.textContent = fmtArea(area);
     areaIn.style.setProperty('--p', ((areaIn.value - areaIn.min) / (areaIn.max - areaIn.min) * 100).toFixed(1) + '%');
     $('#cInc').innerHTML = INC[pkg].map(t => `<li>${t}</li>`).join('');
-    houseEl.innerHTML = `<svg viewBox="0 0 360 200">${houseSVG({ kind: pkg, area, floors: g('c_floors'), site: g('c_site'), roof: g('c_roof'), glass: g('c_glass'), base: !!g('c_base'), garage: !!g('c_garage'), terrace: !!g('c_terrace') })}</svg>`;
+    if (houseEl) houseEl.innerHTML = `<svg viewBox="0 0 360 200">${houseSVG({ kind: pkg, area, floors: g('c_floors'), site: g('c_site'), roof: g('c_roof'), glass: g('c_glass'), base: !!g('c_base'), garage: !!g('c_garage'), terrace: !!g('c_terrace') })}</svg>`;
     let mini;
     if (!house) {
       cancelAnimationFrame(tw0); shown = [0, 0];
