@@ -642,12 +642,12 @@
       const it = stItems[i];
       barEls.forEach((b, k) => { b.classList.toggle('done', k < i); b.firstChild.style.transform = k < i ? 'scaleX(1)' : 'scaleX(0)'; });
       $('#stvT').textContent = $('.st-t', it).textContent; $('#stvK').textContent = $('.st-k', it).textContent;
-      $('#stvAv').src = `assets/stories/s${i}-av.webp`;
-      $('#stvBg').style.backgroundImage = `url(assets/stories/s${i}.webp)`;
-      vid.poster = `assets/stories/s${i}.webp`; vid.src = `assets/stories/s${i}.mp4`; vid.muted = muted;
+      $('#stvAv').src = `assets/stories/s${i}-av.webp?v=2`;
+      $('#stvBg').style.backgroundImage = `url(assets/stories/s${i}.webp?v=2)`;
+      vid.poster = `assets/stories/s${i}.webp?v=2`; vid.src = `assets/stories/s${i}.mp4?v=2`; vid.muted = muted;
       vid.play().catch(() => { vid.muted = true; muted = true; updMute(); vid.play().catch(() => {}); });
       it.classList.add('seen');
-      if (i + 1 < N) { const l = document.createElement('link'); l.rel = 'prefetch'; l.href = `assets/stories/s${i + 1}.mp4`; document.head.appendChild(l); }
+      if (i + 1 < N) { const l = document.createElement('link'); l.rel = 'prefetch'; l.href = `assets/stories/s${i + 1}.mp4?v=2`; document.head.appendChild(l); }
       goal('story_view', { i });
     };
     const updMute = () => { $('#stvMute').setAttribute('aria-label', muted ? 'Включить звук' : 'Выключить звук'); $('#stvMute').style.opacity = muted ? .55 : 1; };
