@@ -624,6 +624,18 @@
     mv.load();
   }, '200px');
 
+  /* ───────── благодарственное письмо ───────── */
+  const lPaper = $('#letterPaper'), lBox = $('#letterBox');
+  if (lPaper && lBox) {
+    onVisible(lPaper, v => { if (v) lPaper.classList.add('marked'); });
+    let lFocus = null;
+    const lOpen = () => { const li = $('img', lBox); if (!li.src) li.src = li.dataset.src; lFocus = document.activeElement; lBox.hidden = false; document.documentElement.style.overflow = 'hidden'; lenis && lenis.stop(); $('#letterClose').focus(); goal('letter_open'); };
+    const lClose = () => { lBox.hidden = true; document.documentElement.style.overflow = ''; lenis && lenis.start(); lFocus && lFocus.focus(); };
+    lPaper.addEventListener('click', lOpen); $('#letterOpen').addEventListener('click', lOpen);
+    lBox.addEventListener('click', lClose);
+    addEventListener('keydown', e => { if (e.key === 'Escape' && !lBox.hidden) lClose(); });
+  }
+
   /* ───────── ВИДЕООТЗЫВЫ: сторис ───────── */
   const stItems = $$('.st-item');
   if (stItems.length) {
